@@ -8,19 +8,16 @@ public class Main {
     }
     
     public static int countCharacters(String[] words, String chars){
-        Map<Character,Integer> letters = new HashMap<Character,Integer> ();
-        for (char name: letters.keySet()) {
-            //String key = name.toString();
-            //String value = letters.get(name).toString();
-            //System.out.println(key + " " + value);
-        }        
-        for(String word: words)
+        Map<Character,Integer> letters = new HashMap ();
+        for (int c = 0; c < chars.length(); c++) 
         {
-            int sum= word.length();
-            
+            letters.compute(chars.charAt(c), (key, value) -> (value == null) ? 1 : value + 1);
         }
-        //if()
-
+        letters.forEach((k,v)->System.out.println(k + " " + v));
+//         for(String word: words)
+//         {
+//             int sum= word.length();   
+//         }
         return 0;
-    }
+    }    
 }
